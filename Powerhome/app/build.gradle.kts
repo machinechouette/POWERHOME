@@ -4,9 +4,7 @@ plugins {
 
 android {
     namespace = "iut.dam.powerhome"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "iut.dam.powerhome"
@@ -34,6 +32,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.ion)
+    implementation(libs.gson)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
