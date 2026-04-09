@@ -1,0 +1,3 @@
+Informations sur les user (id. pseudo; email; password) :
+	1. testuser; test@test.com; 1234
+	2. test2user; test2user@test.com; 5678
