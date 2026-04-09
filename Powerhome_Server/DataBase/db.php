@@ -1,5 +1,5 @@
 <?php
-$pdo = new PDO('mysql:host=localhost;dbname=powerhome', 'username', 'password');
+$pdo = new PDO('mysql:host=localhost;dbname=powerhome', 'root', 'root');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 function getUser($email, $password) {

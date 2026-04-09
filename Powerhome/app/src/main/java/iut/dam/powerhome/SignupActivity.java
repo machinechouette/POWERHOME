@@ -6,9 +6,7 @@ import android.text.TextUtils;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,6 +26,12 @@ public class SignupActivity extends AppCompatActivity {
 
         initViews();
         setListeners();
+
+        btnSignup.setOnClickListener(v -> {
+            if (validateForm()) {
+                performSignup();
+            }
+        });
     }
 
     private void initViews() {
@@ -111,7 +115,6 @@ public class SignupActivity extends AppCompatActivity {
         String username = etUsername.getText().toString().trim();
         String password = etPassword.getText().toString();
 
-        Toast.makeText(this, "Inscription réussie !", Toast.LENGTH_SHORT).show();
-
+        WebRequest.signUp(this, email, username, password);
     }
 }

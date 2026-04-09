@@ -98,7 +98,6 @@ public class LoginActivity extends AppCompatActivity {
         String email    = etEmail.getText().toString().trim();
         String password = etPassword.getText().toString();
 
-        Toast.makeText(this, "Connexion réussie !", Toast.LENGTH_SHORT).show();
-
+        WebRequest.logIn(this, email, password);
     }
 }

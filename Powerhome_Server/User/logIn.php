@@ -1,8 +1,8 @@
 <?php
 require_once '../DataBase/db.php';
 
-$email = $_GET['email'];
-$password = hash('sha256', $_GET['password']);
+$email = $_POST['email'];
+$password = hash('sha256', $_POST['password']);
 $user = getUser($email, $password);
 
 if ($user) {
