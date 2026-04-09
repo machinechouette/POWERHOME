@@ -10,5 +10,4 @@ if (setUser($email, $pseudo, $password)) {
 } else {
     echo json_encode(['error' => 'Failed to create user']);
 }
-
 ?>
