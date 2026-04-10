@@ -4,12 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +15,7 @@ public class ForgotPassword extends AppCompatActivity {
 
     private ImageButton btnBack;
     private EditText etEmail;
+    private EditText etPassword;
     private Button btnReset;
     private TextView tvSignin;
 
@@ -32,6 +31,7 @@ public class ForgotPassword extends AppCompatActivity {
     private void initViews() {
         btnBack  = findViewById(R.id.btn_back);
         etEmail  = findViewById(R.id.et_email);
+        etPassword = findViewById(R.id.et_password);
         btnReset = findViewById(R.id.btn_reset);
         tvSignin = findViewById(R.id.tv_signin);
 
@@ -45,7 +45,7 @@ public class ForgotPassword extends AppCompatActivity {
 
         btnReset.setOnClickListener(v -> {
             if (validateForm()) {
-                sendResetLink();
+                resetPassword();
             }
         });
 
@@ -71,23 +71,24 @@ public class ForgotPassword extends AppCompatActivity {
             return false;
         }
 
+        if (TextUtils.isEmpty(etPassword.getText())) {
+            etPassword.setError("Le mot de passe est requis");
+            etPassword.requestFocus();
+            return false;
+        }
+        if (etPassword.length() < 8) {
+            etPassword.setError("Minimum 8 caractères");
+            etPassword.requestFocus();
+            return false;
+        }
+
         return true;
     }
 
 
-    private void sendResetLink() {
+    private void resetPassword() {
         String email = etEmail.getText().toString().trim();
-
-        showSuccessMessage();
-    }
-
-
-    private void showSuccessMessage() {
-        String email = etEmail.getText().toString().trim();
-        Toast.makeText(this, "Lien envoyé à " + email, Toast.LENGTH_LONG).show();
-
-        btnReset.setEnabled(false);
-        btnReset.setText("Link sent ✓");
-        btnReset.setAlpha(0.7f);
+        String password = etPassword.getText().toString();
+        WebRequest.updatePassword(this, email, password);
     }
 }

@@ -6,7 +6,7 @@ function getUser($email, $password) {
     global $pdo;
     $stmt = $pdo->prepare("SELECT pseudo FROM Users WHERE email = ? AND password_hash = ?");
     $stmt->execute([$email, $password]);
-    return userExists($email, $password);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
 function setUser($email, $pseudo, $password) {
@@ -15,10 +15,20 @@ function setUser($email, $pseudo, $password) {
     return $stmt->execute([$email, $pseudo, $password]);
 }
 
-function userExists($email, $password) {
+function updatePassword($email, $newPassword) {
     global $pdo;
-    $stmt = $pdo->prepare("SELECT * FROM Users WHERE email = ? AND password_hash = ?");
-    $stmt->execute([$email, $password]);
+    if (!userExists($email)) {
+        return false;
+    }
+    $stmt = $pdo->prepare("UPDATE Users SET password_hash = ? WHERE email = ?");
+    return $stmt->execute([$newPassword, $email]);
+    return true;
+}
+
+function userExists($email) {
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT * FROM Users WHERE email = ?");
+    $stmt->execute([$email]);
     return $stmt->rowCount() == 1;
 }
 

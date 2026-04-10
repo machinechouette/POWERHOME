@@ -45,4 +45,22 @@ public abstract class WebRequest {
                     }
                 });
     }
+
+    public static void updatePassword(Context context, String email, String password){
+        Ion.with(context)
+                .load("POST", URL_BASE + "User/changePassword.php")
+                .setBodyParameter("email", email)
+                .setBodyParameter("newPassword", password)
+                .asString()
+                .withResponse()
+                .setCallback((e,response)->{
+
+                    if(e == null && response != null){
+                        String result = response.getResult();
+                        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(context, "Erreur: " + (e != null ? e.getMessage() : ""), Toast.LENGTH_LONG).show();
+                    }
+                });
+    }
 }

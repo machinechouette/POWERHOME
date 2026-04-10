@@ -22,7 +22,7 @@
             android:gravity="center_vertical">
 
             <TextView
-                android:id="@+id/tvResidentName"
+                android:id="@+id/tv_resident_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:background="@drawable/bg_floor_badge_border"
+                android:background="@drawable/bg_rounded"
                 android:paddingHorizontal="6dp"
                 android:paddingVertical="4dp"
                 android:gravity="center_vertical">
@@ -49,7 +49,7 @@
                     android:textColor="@color/black"/>
 
                 <TextView
-                    android:id="@+id/tvFloorNumber"
+                    android:id="@+id/tv_floor_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1"
@@ -67,7 +67,7 @@
             android:layout_marginTop="8dp">
 
             <TextView
-                android:id="@+id/tvEquipmentsCount"
+                android:id="@+id/tv_equipments"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0 équipement"
@@ -75,7 +75,7 @@
                 android:textSize="14sp" />
 
             <LinearLayout
-                android:id="@+id/llIconsContainer"
+                android:id="@+id/ll_icones_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
