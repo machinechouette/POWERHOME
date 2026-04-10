@@ -32,4 +32,20 @@ function userExists($email) {
     return $stmt->rowCount() == 1;
 }
 
+/*function updateProfile($currentEmail, $newPseudo, $newEmail, $newPasswordHash) {
+    global $pdo;
+    if ($newPasswordHash !== null) {
+        $stmt = $pdo->prepare(
+            "UPDATE Users SET pseudo = ?, email = ?, password_hash = ?
+             WHERE email = ?"
+        );
+        return $stmt->execute([$newPseudo, $newEmail, $newPasswordHash, $currentEmail]);
+    } else {
+        $stmt = $pdo->prepare(
+            "UPDATE Users SET pseudo = ?, email = ? WHERE email = ?"
+        );
+        return $stmt->execute([$newPseudo, $newEmail, $currentEmail]);
+    }
+}
+*/
 ?>
