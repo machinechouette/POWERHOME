@@ -26,12 +26,6 @@ public class LoginActivity extends AppCompatActivity {
 
         session = new SessionManager(this);
 
-        // Si déjà connecté, aller directement au profil
-        if (session.isLoggedIn()) {
-            goToProfile();
-            return;
-        }
-
         setContentView(R.layout.activity_login);
         initViews();
         setListeners();
