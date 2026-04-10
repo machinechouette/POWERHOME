@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F0F2EE"
@@ -48,7 +49,7 @@
                 android:layout_height="20dp"
                 android:src="@drawable/ic_email"
                 android:contentDescription="Email icon"
-                android:tint="#6B8068" />
+                app:tint="#6B8068" />
 
             <EditText
                 android:id="@+id/et_email"
@@ -79,7 +80,7 @@
                 android:layout_height="20dp"
                 android:src="@drawable/ic_lock"
                 android:contentDescription="Password icon"
-                android:tint="#6B8068" />
+                app:tint="#6B8068" />
 
             <EditText
                 android:id="@+id/et_password"
@@ -140,7 +141,7 @@
                 android:id="@+id/tv_signup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="S'inscrire'"
+                android:text="S'inscrire"
                 android:textColor="#2D3A2E"
                 android:textSize="14sp"
                 android:textStyle="bold" />
